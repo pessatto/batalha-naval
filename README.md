@@ -66,11 +66,11 @@ Todo o jogo está em [`batalha_naval.c`](batalha_naval.c):
 |---|---|
 | `cria_tabuleiro` | Aloca dinamicamente a matriz do tabuleiro |
 | `init_tabuleiro` | Preenche o tabuleiro com água |
-| `sorteia` | Sorteia um número entre um mínimo e um máximo; usada para posicionar os navios e para os tiros do PC |
+| `sorteia` | Sorteia um número entre um mínimo e um máximo. É usada para posicionar os navios e para escolher os tiros do PC |
 | `sorteia_tabuleiro` | Posiciona os navios em casas aleatórias |
 | `mostra_tabuleiro` / `screen` | Desenha os tabuleiros na tela |
 | `le_jogada` | Lê e valida a jogada do Jogador |
-| `atira` | Aplica um tiro e informa se acertou, errou ou se a casa já tinha sido atingida |
+| `atira` | Dá um tiro em uma casa e diz se acertou um navio, caiu na água ou se a casa já tinha sido atingida |
 | `mostra_tiro` | Mostra o resultado de cada tiro |
 | `libera_tabuleiro` | Libera a memória alocada |
 
