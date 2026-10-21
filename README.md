@@ -14,7 +14,7 @@ Projeto criado como **prática de lógica de programação**, usando apenas os c
 ## Como jogar
 
 - Cada lado tem um tabuleiro de **5 linhas (A–E) × 8 colunas (0–7)** com **7 navios** posicionados aleatoriamente. Cada navio ocupa uma casa.
-- O Jogador e o PC atiram alternadamente. O Jogador digita a linha e a coluna do tiro, por exemplo `B3` (maiúscula ou minúscula).
+- O Jogador e o PC atiram alternadamente. O Jogador digita a linha e a coluna do tiro, por exemplo `E7` (maiúscula ou minúscula).
 - Jogadas fora do tabuleiro, em formato inválido ou em uma casa já atingida são recusadas, e o jogo pede outra.
 - O PC sorteia seus tiros, sem repetir casas.
 - Vence quem afundar os 7 navios do adversário primeiro.
@@ -66,13 +66,14 @@ Todo o jogo está em [`batalha_naval.c`](batalha_naval.c):
 |---|---|
 | `cria_tabuleiro` | Aloca dinamicamente a matriz do tabuleiro |
 | `init_tabuleiro` | Preenche o tabuleiro com água |
+| `sorteia` | Sorteia um número inteiro entre um mínimo e um máximo |
 | `sorteia_tabuleiro` | Posiciona os navios em casas aleatórias |
 | `mostra_tabuleiro` / `screen` | Desenha os tabuleiros na tela |
-| `atira` | Aplica um tiro e informa se acertou, errou ou se a casa já tinha sido atingida |
 | `le_jogada` | Lê e valida a jogada do Jogador |
+| `atira` | Aplica um tiro e informa se acertou, errou ou se a casa já tinha sido atingida |
 | `mostra_tiro` | Mostra o resultado de cada tiro |
 | `libera_tabuleiro` | Libera a memória alocada |
 
 ## Autor
 
-João Pedro Pessatto · [github.com/pessatto](https://github.com/pessatto)
+João Pedro Mendonça Pessatto · [github.com/pessatto](https://github.com/pessatto)
