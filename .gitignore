@@ -1,0 +1,8 @@
+# Executavel gerado pela compilacao
+batalha_naval
+*.exe
+*.o
+
+# Arquivos do macOS
+*.dSYM/
+.DS_Store
