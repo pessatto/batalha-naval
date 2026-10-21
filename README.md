@@ -66,7 +66,7 @@ Todo o jogo está em [`batalha_naval.c`](batalha_naval.c):
 |---|---|
 | `cria_tabuleiro` | Aloca dinamicamente a matriz do tabuleiro |
 | `init_tabuleiro` | Preenche o tabuleiro com água |
-| `sorteia` | Sorteia um número inteiro entre um mínimo e um máximo |
+| `sorteia` | Sorteia um número entre um mínimo e um máximo; usada para posicionar os navios e para os tiros do PC |
 | `sorteia_tabuleiro` | Posiciona os navios em casas aleatórias |
 | `mostra_tabuleiro` / `screen` | Desenha os tabuleiros na tela |
 | `le_jogada` | Lê e valida a jogada do Jogador |
