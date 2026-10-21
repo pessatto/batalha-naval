@@ -1,10 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define agua ' '
-#define navio '@'
-#define explosao '*'
-#define falha '-'
+
+// Configuracao do jogo
+#define LINHAS 5  // maximo 26 (as linhas sao as letras A-Z)
+#define COLUNAS 8 // ate 10 para o tabuleiro ficar alinhado na tela
+#define NAVIOS 7  // no maximo LINHAS * COLUNAS
+
+// Simbolos do tabuleiro
+#define AGUA ' '
+#define NAVIO '@'
+#define EXPLOSAO '*'
+#define FALHA '-'
 
 void libera_tabuleiro(char **tab, int nl)
 {
@@ -49,7 +56,7 @@ void init_tabuleiro(char **tab, int nl, int nc)
     {
         for (c = 0; c < nc; c++)
         {
-            tab[l][c] = agua;
+            tab[l][c] = AGUA;
         }
     }
 }
@@ -69,9 +76,9 @@ void sorteia_tabuleiro(char **tab, int nl, int nc, int nv)
     {
         l = sorteia(0, nl - 1);
         c = sorteia(0, nc - 1);
-        if (tab[l][c] == agua)
+        if (tab[l][c] == AGUA)
         {
-            tab[l][c] = navio;
+            tab[l][c] = NAVIO;
             n++;
         }
     }
@@ -96,9 +103,9 @@ void mostra_tabuleiro(char **tab, int nl, int nc, int mostrar_navios)
         printf("%c|", 'A' + l);
         for (c = 0; c < nc; c++)
         {
-            if (tab[l][c] == navio && !mostrar_navios)
+            if (tab[l][c] == NAVIO && !mostrar_navios)
             {
-                printf("%c|", agua);
+                printf("%c|", AGUA);
             }
             else
             {
@@ -137,14 +144,14 @@ void screen(char **pc, char **j, int nl, int nc, int mostrar_pc)
 // Retorna 1 se acertou, 0 se errou, -1 se a posicao ja tinha sido atingida
 int atira(char **tab, int l, int c)
 {
-    if (tab[l][c] == navio)
+    if (tab[l][c] == NAVIO)
     {
-        tab[l][c] = explosao;
+        tab[l][c] = EXPLOSAO;
         return 1;
     }
-    if (tab[l][c] == agua)
+    if (tab[l][c] == AGUA)
     {
-        tab[l][c] = falha;
+        tab[l][c] = FALHA;
         return 0;
     }
     return -1;
@@ -159,7 +166,7 @@ void mostra_tiro(char *quem, int l, int c, int r)
     }
     else
     {
-        printf("agua.\n");
+        printf("Agua.\n");
     }
 }
 
@@ -222,7 +229,7 @@ int le_jogada(char **tab, int nl, int nc, int pos[2])
         {
             printf("Fora do tabuleiro: linhas A-%c, colunas 0-%d.\n", 'A' + nl - 1, nc - 1);
         }
-        else if (tab[pos[0]][pos[1]] == explosao || tab[pos[0]][pos[1]] == falha)
+        else if (tab[pos[0]][pos[1]] == EXPLOSAO || tab[pos[0]][pos[1]] == FALHA)
         {
             printf("Jogador ja atirou em %c%d. Escolha outra posicao.\n", 'A' + pos[0], pos[1]);
         }
@@ -242,8 +249,8 @@ int main()
 
     char **tabpc = NULL;
     char **tabj = NULL;
-    int nl = 5, nc = 8;
-    int nv = 7; // numero de navios
+    int nl = LINHAS, nc = COLUNAS;
+    int nv = NAVIOS;
     int acertosj = 0, acertospc = 0;
     int pos[2];
     int l, c, r;
@@ -253,6 +260,11 @@ int main()
     if (nv > nl * nc)
     {
         printf("Erro: %d navios nao cabem em um tabuleiro %dx%d.\n", nv, nl, nc);
+        return 1;
+    }
+    if (nl > 26)
+    {
+        printf("Erro: o tabuleiro pode ter no maximo 26 linhas (A-Z).\n");
         return 1;
     }
 

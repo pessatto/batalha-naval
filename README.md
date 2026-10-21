@@ -13,7 +13,7 @@ Projeto criado como **prática de lógica de programação**, usando apenas os c
 
 ## Como jogar
 
-- Cada lado tem um tabuleiro de **5 linhas (A–E) × 8 colunas (0–7)** com **7 navios** posicionados aleatoriamente. Cada navio ocupa uma casa.
+- Cada lado tem um tabuleiro de **5 linhas (A–E) × 8 colunas (0–7)** com **7 navios** posicionados aleatoriamente. Cada navio ocupa uma casa. Esses valores podem ser alterados nas constantes `LINHAS`, `COLUNAS` e `NAVIOS`, no início de `batalha_naval.c`.
 - O Jogador e o PC atiram alternadamente. O Jogador digita a linha e a coluna do tiro, por exemplo `E7` (maiúscula ou minúscula).
 - Jogadas fora do tabuleiro, em formato inválido ou em uma casa já atingida são recusadas, e o jogo pede outra.
 - O PC sorteia seus tiros, sem repetir casas.
